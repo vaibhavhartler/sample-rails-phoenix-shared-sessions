@@ -41,16 +41,29 @@ defmodule PhoenixApp.Endpoint do
     store: PlugRailsCookieSessionStore,
     # Decide on a shared key for your cookie. Oftentimes, this should
     # mirror your Rails app session key
-    key: "_rails_app_session",
-    secure: true,
+    key: "_terraserver_session",
+    secure: false,
     encrypt: true,
-    domain: ".#{System.get_env("DOMAIN")}",
-    signing_salt: System.get_env("SESSION_ENCRYPTED_SIGNED_COOKIE_SALT"),
-    encryption_salt: System.get_env("SESSION_ENCRYPTED_COOKIE_SALT"),
+    # domain: ".#{System.get_env("DOMAIN")}",
+    signing_salt: "sigining salt",
+    encryption_salt: "encrypted salt", # System.get_env("SESSION_ENCRYPTED_COOKIE_SALT"),
     key_iterations: 1000,
     key_length: 64,
     key_digest: :sha,
     serializer: Poison
+
+    #   store: PlugRailsCookieSessionStore,
+    # key: "_SOMETHING_HERE_session",
+    # domain: '.myapp.com',
+    # secure: true,
+    # signing_with_salt: true,
+    # signing_salt: "signing salt",
+    # encrypt: true,
+    # encryption_salt: "encryption salt",
+    # key_iterations: 1000,
+    # key_length: 64,
+    # key_digest: :sha,
+    # serializer: Poison # see serializer details below
 
   plug PhoenixApp.Router
 end

@@ -37,7 +37,7 @@ config :phoenix, :stacktrace_depth, 20
 config :phoenix_app, PhoenixApp.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  database: "phoenix_app_dev",
+  database: "terraserver_development",
   hostname: "localhost",
-  port: System.get_env("PGPORT"),
+  port: "5432",  #System.get_env("PGPORT"),
   pool_size: 10
